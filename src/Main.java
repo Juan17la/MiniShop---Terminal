@@ -10,6 +10,7 @@ public class Main {
             "2. List Products",
             "3. Calculate total inventory",
             "4. Search product by name",
+            "5. Delete Product",
             "17. Exit",
     };
 
@@ -36,6 +37,8 @@ public class Main {
                 case 2 -> listProducts();
                 case 3 -> calculateTotalInventary();
                 case 4 -> findProductByName();
+                case 5 -> deleteProduct();
+                case 6 -> sellProduct();
                 case 17 -> System.out.println("Goodbye!");
                 default -> System.out.println("Invalid option!");
             }
@@ -93,6 +96,33 @@ public class Main {
         String name = sc.nextLine();
         Product productFound = myShop.findProductByName(name);
         System.out.printf("%s $%d stock: %d%n", productFound.getName(), productFound.getPrice(), productFound.getStock());
+        System.out.println("--------------------------");
+    }
+
+    public void deleteProduct(){
+        sc.nextLine();
+
+        System.out.println("Write the name of the product you want delete");
+        String nameProduct = sc.nextLine();
+
+        myShop.deleteProduct(nameProduct);
+
+        System.out.println("--------------------------");
+        System.out.println("Product delete successfully");
+        System.out.println("--------------------------");
+
+    }
+
+    public void sellProduct(){
+        sc.nextLine();
+
+        System.out.println("Write the name of the product you want sell");
+        String nameProduct = sc.nextLine();
+
+        myShop.sellProduct(nameProduct);
+
+        System.out.println("--------------------------");
+        System.out.println("Product successfully sold");
         System.out.println("--------------------------");
     }
 }

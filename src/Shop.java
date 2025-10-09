@@ -31,4 +31,16 @@ public class Shop {
         }
         throw new IllegalArgumentException("No product found with name: " + name);
     }
+
+    public void deleteProduct(String name){
+        Product selectedProduct = this.findProductByName(name);
+        this.products.remove(selectedProduct);
+        return;
+    }
+
+    public void sellProduct(String name) {
+        Product selectedProduct = this.findProductByName(name);
+        selectedProduct.stock--;
+    }
+
 }
